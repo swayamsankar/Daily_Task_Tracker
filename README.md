@@ -2,7 +2,12 @@
 
 A full-stack **Daily Task Management & Productivity Tracker** with performance analytics, streak tracking, and deep work sessions. Built with React, Node.js, Express, and MongoDB.
 
-![TaskSway Dashboard](https://via.placeholder.com/1200x600/0d0e11/4f7cff?text=TaskSway+Dashboard)
+<img width="1902" height="912" alt="image" src="https://github.com/user-attachments/assets/d9c79cac-d3a8-4afc-9855-b35b5c549349" />
+<img width="1897" height="908" alt="image" src="https://github.com/user-attachments/assets/bca4cabd-a489-4f83-b3aa-cdd79b23dcb6" />
+<img width="1901" height="908" alt="image" src="https://github.com/user-attachments/assets/55159b89-f9f7-449c-bb8c-0d693820a843" />
+
+
+
 
 ---
 
@@ -131,28 +136,6 @@ This starts both backend (port 5000) and frontend (port 3000) concurrently.
 
 ---
 
-## 🌐 Deployment
-
-### Frontend → Vercel
-
-1. Push `frontend/` folder to GitHub
-2. Import to [Vercel](https://vercel.com)
-3. Set `REACT_APP_API_URL` to your Render backend URL
-4. Deploy — `vercel.json` handles SPA routing automatically
-
-### Backend → Render
-
-1. Push `backend/` folder to GitHub
-2. Create a new **Web Service** on [Render](https://render.com)
-3. Build command: `npm install`
-4. Start command: `npm start`
-5. Add environment variables from `.env`
-
-### Database → MongoDB Atlas
-
-1. Create cluster at [MongoDB Atlas](https://cloud.mongodb.com)
-2. Whitelist Render IP (or `0.0.0.0/0` for all)
-3. Copy connection string to `MONGODB_URI`
 
 ---
 
@@ -215,7 +198,19 @@ This starts both backend (port 5000) and frontend (port 3000) concurrently.
 | Fonts | Syne (display) + DM Sans (body) — Google Fonts |
 
 ---
+## 👨‍💻 Developed By
+
+**Swayam Sankar Nayak**
+
+## ⭐ Support & Feedback
+
+If you find this project useful, please ⭐ star the repository on GitHub.
+
+Feel free to try it out and share your feedback — good ratings and suggestions are always appreciated!
+
+---
 
 ## 📄 License
 
 MIT © 2026 TaskSway
+
