@@ -135,6 +135,12 @@ npm run dev
 This starts both backend (port 5000) and frontend (port 3000) concurrently.
 
 ---
+## 🌐 Live Demo
+
+* **Frontend (Live URL):** [https://your-frontend-url.com](https://tasksway.netlify.app/)
+* **Backend (API URL):** [https://your-backend-url.com](https://tasksway.onrender.com)
+
+> Replace the above links with your deployed frontend (e.g., Vercel/Netlify) and backend (e.g., Render/Railway) URLs.
 
 
 ---
