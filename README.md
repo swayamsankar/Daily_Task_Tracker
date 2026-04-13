@@ -1,0 +1,221 @@
+# ⚡ TaskSway — Kinetic Productivity Sanctuary
+
+A full-stack **Daily Task Management & Productivity Tracker** with performance analytics, streak tracking, and deep work sessions. Built with React, Node.js, Express, and MongoDB.
+
+![TaskSway Dashboard](https://via.placeholder.com/1200x600/0d0e11/4f7cff?text=TaskSway+Dashboard)
+
+---
+
+## 📁 Folder Structure
+
+```
+Daily_Task_Tracker/
+└── Daily_Task/
+    │
+    ├── backend/
+    │   ├── controllers/
+    │   │   ├── analyticsController.js
+    │   │   ├── authController.js
+    │   │   ├── taskController.js
+    │   │   └── userController.js
+    │   │
+    │   ├── middleware/
+    │   │   └── auth.js
+    │   │
+    │   ├── models/
+    │   │   ├── DailyScore.js
+    │   │   ├── Task.js
+    │   │   └── User.js
+    │   │
+    │   ├── routes/
+    │   │   ├── analytics.js
+    │   │   ├── auth.js
+    │   │   ├── tasks.js
+    │   │   └── users.js
+    │   │
+    │   ├── uploads/              
+    │   │
+    │   ├── .env                  
+    │   ├── package.json
+    │   ├── package-lock.json
+    │   └── server.js
+    │
+    ├── frontend/
+    │   ├── public/
+    │   │   └── index.html
+    │   │
+    │   ├── src/
+    │   │   ├── components/
+    │   │   │   ├── Analytics/
+    │   │   │   │   └── Analytics.js
+    │   │   │   │
+    │   │   │   ├── Auth/
+    │   │   │   │   ├── Login.js
+    │   │   │   │   └── Signup.js
+    │   │   │   │
+    │   │   │   ├── BottomNav/
+    │   │   │   │   └── BottomNav.js   ✅ (mobile navbar)
+    │   │   │   │
+    │   │   │   ├── common/
+    │   │   │   │   └── AppLayout.js
+    │   │   │   │
+    │   │   │   ├── Dashboard/
+    │   │   │   │   └── Dashboard.js
+    │   │   │   │
+    │   │   │   ├── Settings/
+    │   │   │   │   └── Settings.js
+    │   │   │   │
+    │   │   │   └── Tasks/
+    │   │   │       ├── TaskDrawer.js
+    │   │   │       └── Tasks.js
+    │   │   │
+    │   │   ├── context/
+    │   │   │   ├── AuthContext.js
+    │   │   │   └── SearchContext.js
+    │   │   │
+    │   │   ├── styles/
+    │   │   │   └── global.css
+    │   │   │
+    │   │   ├── App.js
+    │   │   └── index.js
+    │   │
+    │   ├── .env.example          
+    │   ├── package.json
+    │   ├── package-lock.json
+    │   └── vercel.json
+    │
+    ├── .gitignore               ✅
+    ├── package.json             (root - optional)
+    └── README.md
+```
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js v18+
+- MongoDB Atlas account (or local MongoDB)
+
+### 1. Clone & Install
+
+```bash
+git clone https://github.com/yourusername/tasksway.git
+cd tasksway
+npm run install:all
+```
+
+### 2. Configure Environment
+
+**Backend** — copy `backend/.env.example` to `backend/.env`:
+```env
+PORT=5000
+MONGODB_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/tasksway
+JWT_SECRET=your_long_random_secret_here
+JWT_EXPIRE=7d
+FRONTEND_URL=http://localhost:3000
+```
+
+**Frontend** — copy `frontend/.env.example` to `frontend/.env`:
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+```
+
+### 3. Run Development
+
+```bash
+npm run dev
+```
+
+This starts both backend (port 5000) and frontend (port 3000) concurrently.
+
+---
+
+## 🌐 Deployment
+
+### Frontend → Vercel
+
+1. Push `frontend/` folder to GitHub
+2. Import to [Vercel](https://vercel.com)
+3. Set `REACT_APP_API_URL` to your Render backend URL
+4. Deploy — `vercel.json` handles SPA routing automatically
+
+### Backend → Render
+
+1. Push `backend/` folder to GitHub
+2. Create a new **Web Service** on [Render](https://render.com)
+3. Build command: `npm install`
+4. Start command: `npm start`
+5. Add environment variables from `.env`
+
+### Database → MongoDB Atlas
+
+1. Create cluster at [MongoDB Atlas](https://cloud.mongodb.com)
+2. Whitelist Render IP (or `0.0.0.0/0` for all)
+3. Copy connection string to `MONGODB_URI`
+
+---
+
+## 📡 API Reference
+
+### Auth
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/signup` | Register new user |
+| POST | `/api/auth/login` | Login + get JWT token |
+| GET | `/api/auth/me` | Get current user |
+
+### Tasks
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/tasks` | Get tasks (filter by `?date=`, `?category=`) |
+| POST | `/api/tasks` | Create task |
+| PUT | `/api/tasks/:id` | Update task (including completion) |
+| DELETE | `/api/tasks/:id` | Delete task |
+| GET | `/api/tasks/today/stats` | Today's stats + streak |
+
+### Analytics
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/analytics/performance?period=7\|30` | Performance data |
+
+### Users
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| PUT | `/api/users/profile` | Update profile + avatar |
+| PUT | `/api/users/password` | Change password |
+
+---
+
+## ✨ Features
+
+- 🔐 **JWT Authentication** — secure signup/login
+- ✅ **Task CRUD** — create, edit, delete, complete tasks
+- 📊 **Daily Score** — `(completed / total) × 100`
+- 🔥 **Streak Tracking** — consecutive fully-completed days
+- 📈 **Analytics** — area charts, category allocation, benchmarks
+- 🎯 **Deep Work Timer** — 45-minute focus sessions
+- 🌙 **Dark/Light Mode** — persisted per user
+- 📱 **Responsive** — mobile + desktop
+- 🔔 **Push/Email Notifications** preferences
+- 🖼️ **Avatar Upload** — via multipart form data
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 18, React Router 6, Recharts, react-hot-toast |
+| Styling | Custom CSS Design System (CSS Variables) |
+| Backend | Node.js, Express 4 |
+| Database | MongoDB with Mongoose |
+| Auth | JWT + bcryptjs |
+| File Upload | Multer |
+| Fonts | Syne (display) + DM Sans (body) — Google Fonts |
+
+---
+
+## 📄 License
+
+MIT © 2026 TaskSway
