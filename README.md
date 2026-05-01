@@ -95,6 +95,9 @@ Daily_Task_Tracker/
 ```
 
 ---
+# Architecture Diagram
+<img width="1440" height="1452" alt="image" src="https://github.com/user-attachments/assets/24d45d33-1c53-47b0-8076-107e89a984aa" />
+
 
 ## 🚀 Quick Start
 
